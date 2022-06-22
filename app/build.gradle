@@ -43,9 +43,9 @@ dependencies {
 
     //하단 탭 관련 라이브러리
     implementation 'com.google.android.material:material:1.6.1.'
-    implementation 'com.android.support:design:29.0.0'
+    implementation 'com.android.support:design:31.0.0'
 
 
     //카카오 로그인 API
-//    implementation "com.kakao.sdk:v2-user:2.9.0"
+    implementation "com.kakao.sdk:v2-user:2.9.0"
 }
