@@ -34,7 +34,7 @@ class UserInfo_Fragment : Fragment() {
     fun init(view : View){
         my_Survey = view.findViewById(R.id.my_Survey)
         my_Survey.setOnClickListener{
-            getParentFragmentManager().beginTransaction().replace(R.id.home_ly, NUd_Fragment()).commit()
+            getParentFragmentManager().beginTransaction().replace(R.id.home_ly,mySurvey_Fragment()).commit()
         }
 
     }
