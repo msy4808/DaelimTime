@@ -13,7 +13,7 @@ class SurveyEditActivity : AppCompatActivity() {
     lateinit var edit_Doc: EditText
     lateinit var typeSpinner: Spinner
     lateinit var type: String
-    var selectType:String = ""
+    var selectType:String = "A"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

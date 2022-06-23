@@ -22,7 +22,7 @@ class Sch_SurveyFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sch_survey, container, false)
         val fab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
-
+        DBHelper.getSchoolSurveyList()
         fab.setOnClickListener { //관리자일 경우 설문 작성
             if(DBHelper.id == 2304993869) {
                 val intent:Intent = Intent((activity as MainActivity).applicationContext, SurveyEditActivity::class.java)

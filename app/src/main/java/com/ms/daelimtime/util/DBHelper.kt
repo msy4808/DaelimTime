@@ -6,8 +6,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import retrofit2.http.POST
 import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 object DBHelper {
     val database: DatabaseReference = Firebase.database.reference //레퍼런스 초기화
@@ -17,7 +21,7 @@ object DBHelper {
     var id: Long? = 0
 
     fun getUSerInfo(userId: Long?) {
-        database.child("User").child("UID_${userId}").get().addOnSuccessListener {
+        database.child("User").child("UID_${id}").get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
         }.addOnFailureListener {
             Log.e("firebase", "Error getting data", it)
@@ -25,31 +29,29 @@ object DBHelper {
     }
 
     fun sendSchoolSurvey(title: String, doc: String, type: String) {
-        database.child("School_Survey").child("SC_${id}").child("title").setValue(title)
-        database.child("School_Survey").child("SC_${id}").child("doc").setValue(doc)
-        database.child("School_Survey").child("SC_${id}").child("type").setValue(type)
+        database.child("School_Survey").child("SC_${id}_${title}").child("title").setValue(title)
+        database.child("School_Survey").child("SC_${id}_${title}").child("doc").setValue(doc)
+        database.child("School_Survey").child("SC_${id}_${title}").child("type").setValue(type)
 
     }
 
     fun sendStudentSurvey(title: String, doc: String, type: String) {
-
+        database.child("Student_Survey").child("ST_${id}_${title}").child("title").setValue(title)
+        database.child("Student_Survey").child("ST_${id}_${title}").child("doc").setValue(doc)
+        database.child("Student_Survey").child("ST_${id}_${title}").child("type").setValue(type)
     }
+    fun getSchoolSurveyList(){
+        val allDatabase = object : ValueEventListener {
+            override fun onDataChange(datasnapshot: DataSnapshot) {
+                val post = datasnapshot.child("School_Survey").children.forEach {
+                    Log.d("데이터베이스1", "${it.key} === ${it.getValue().toString()}")
+                }
+            }
 
-//    private fun checkSchool_Survey(title: String, doc: String, type: String){
-//        //전화번호 중복 체크
-//        database.child("School_Survey").child("SC_${id}").equalTo("SC_${id}")
-//            .addListenerForSingleValueEvent(object : ValueEventListener {
-//                override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                    if (!dataSnapshot.exists()) {
-//                        sendSchoolSurvey(title, doc, type)
-//                    } else {
-//                        mShowShortToast("이미 등록된 번호입니다")
-//                    }
-//                }
-//
-//                override fun onCancelled(databaseError: DatabaseError) {
-//
-//                }
-//            })
-//    }
+            override fun onCancelled(datasnapshot: DatabaseError) {
+                Log.d("데이터베이스 에러", "ERROR")
+            }
+        }
+        database.addValueEventListener(allDatabase)
+    }
 }
