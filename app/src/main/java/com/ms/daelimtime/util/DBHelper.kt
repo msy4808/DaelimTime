@@ -1,5 +1,6 @@
 package com.ms.daelimtime.util
 
+import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -8,6 +9,9 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.kakao.sdk.user.model.User
+import com.ms.daelimtime.fragment.UserInfo_Fragment
+import com.ms.daelimtime.util.DBHelper.getUserData
 import retrofit2.http.POST
 import java.util.*
 import kotlin.collections.ArrayList
@@ -61,5 +65,20 @@ object DBHelper {
         database.child("User").child("UID_${id}").child("userID").setValue(id)
         database.child("User").child("UID_${id}").child("userClass").setValue(userClass)
         database.child("User").child("UID_${id}").child("userClassNum").setValue(userClassNum)
+    }
+
+    fun getUserData(){
+        val userDataListener = object : ValueEventListener{
+            var user_classNum : String = ""
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var user_class : String = database.child("User").child("0").child("userClass").get().toString()
+                UserInfo_Fragment().getUserData(user_class)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w( "loadPost:onCancelled", "error")
+            }
+        }
+        database.addValueEventListener(userDataListener)
     }
 }

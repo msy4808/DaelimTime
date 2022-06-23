@@ -124,7 +124,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:ems="10"
-            android:enabled="false"
+
             android:hint="학번"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +137,7 @@
             android:layout_marginEnd="120dp"
             android:layout_weight="1"
             android:ems="10"
-            android:enabled="false"
+
             android:hint="학과"
             android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"

@@ -2,6 +2,7 @@ package com.ms.daelimtime.fragment
 
 import android.app.ProgressDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.FragmentTransaction
 import com.ms.daelimtime.R
+import com.ms.daelimtime.util.DBHelper
 
 
 class UserInfo_Fragment : Fragment() {
@@ -19,6 +21,10 @@ class UserInfo_Fragment : Fragment() {
 
     lateinit var userClassNum_edit : EditText
     lateinit var userClass_edit : EditText
+
+    var usercStr : String = ""
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +38,12 @@ class UserInfo_Fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user_info, container, false)
         init(view)
-        getUserData(view)
+
+        userClassNum_edit = view.findViewById(R.id.user_class_edit)
+        userClass_edit = view.findViewById(R.id.user_classNum_edit)
+        DBHelper.getUserData()
+
+
         return view
     }
 
@@ -44,9 +55,10 @@ class UserInfo_Fragment : Fragment() {
 
     }
 
-    fun getUserData(view : View){
-        userClassNum_edit = view.findViewById(R.id.user_class_edit)
-        userClass_edit = view.findViewById(R.id.user_classNum_edit)
+    fun getUserData(userClass : String){
+        this.usercStr = userClass
+        Log.e("df",userClass)
+
     }
 }
 
