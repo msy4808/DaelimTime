@@ -26,6 +26,18 @@ object DBHelper {
     var userClassNum : String? = ""
     var userClass : String? = ""
 
+    //School_Survey 데이터 Map
+    var school_List_Key: ArrayList<String> = ArrayList()
+    var school_Title_List: HashMap<String?, Any> = HashMap()
+    var school_Doc_List: HashMap<String?, Any> = HashMap()
+    var school_Type_List: HashMap<String?, Any> = HashMap()
+
+    //Student_Survey 데이터 Map
+    var student_List_Key: ArrayList<String> = ArrayList()
+    var student_Title_List: HashMap<String?, Any> = HashMap()
+    var student_Doc_List: HashMap<String?, Any> = HashMap()
+    var student_Type_List: HashMap<String?, Any> = HashMap()
+
     fun getUSerInfo(userId: Long?) {
         database.child("User").child("UID_${id}").get().addOnSuccessListener {
             Log.i("firebase", "Got value ${it.value}")
@@ -46,12 +58,29 @@ object DBHelper {
         database.child("Student_Survey").child("ST_${id}_${title}").child("doc").setValue(doc)
         database.child("Student_Survey").child("ST_${id}_${title}").child("type").setValue(type)
     }
-    fun getSchoolSurveyList(){
+
+    fun getSurveyList() {
         val allDatabase = object : ValueEventListener {
             override fun onDataChange(datasnapshot: DataSnapshot) {
-                val post = datasnapshot.child("School_Survey").children.forEach {
-                    Log.d("데이터베이스1", "${it.key} === ${it.getValue().toString()}")
+                //School Map GetData
+                datasnapshot.child("School_Survey").children.forEach {
+                    school_List_Key.add(it.key!!)
+                    school_Title_List.put(it.key, it.child("title").getValue().toString())
+                    school_Doc_List.put(it.key, it.child("doc").getValue().toString())
+                    school_Type_List.put(it.key, it.child("type").getValue().toString())
                 }
+
+                //Student Map GetData
+                datasnapshot.child("Student_Survey").children.forEach {
+                    student_List_Key.add(it.key!!)
+                    student_Title_List.put(it.key, it.child("title").getValue().toString())
+                    student_Doc_List.put(it.key, it.child("doc").getValue().toString())
+                    student_Type_List.put(it.key, it.child("type").getValue().toString())
+                }
+
+                //User 추가
+
+
             }
 
             override fun onCancelled(datasnapshot: DatabaseError) {
