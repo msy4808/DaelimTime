@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
 import com.ms.daelimtime.R
 
 class UserInfo_Fragment : Fragment() {
@@ -14,6 +16,8 @@ class UserInfo_Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user_info, container, false)
+
+
         return view
     }
 }
