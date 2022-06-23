@@ -22,7 +22,6 @@ class UserInfo_Fragment : Fragment() {
     lateinit var userClassNum_edit : EditText
     lateinit var userClass_edit : EditText
 
-    var usercStr : String = ""
 
 
 
@@ -39,27 +38,27 @@ class UserInfo_Fragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_user_info, container, false)
         init(view)
 
-        userClassNum_edit = view.findViewById(R.id.user_class_edit)
-        userClass_edit = view.findViewById(R.id.user_classNum_edit)
-        DBHelper.getUserData()
 
 
         return view
     }
 
     fun init(view : View){
+        userClassNum_edit = view.findViewById(R.id.user_classNum_edit)
+        userClass_edit = view.findViewById(R.id.user_class_edit)
+        userClassNum_edit.setText(DBHelper.userClassNum)
+        userClass_edit.setText(DBHelper.userClass)
+
+
         my_Survey = view.findViewById(R.id.my_Survey)
         my_Survey.setOnClickListener{
             getParentFragmentManager().beginTransaction().replace(R.id.home_ly,mySurvey_Fragment()).commit()
+
         }
 
     }
 
-    fun getUserData(userClass : String){
-        this.usercStr = userClass
-        Log.e("df",userClass)
 
-    }
 }
 
 
