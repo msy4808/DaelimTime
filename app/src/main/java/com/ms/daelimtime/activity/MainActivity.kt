@@ -8,14 +8,16 @@ import com.ms.daelimtime.fragment.Notice_Fragment
 import com.ms.daelimtime.fragment.Sch_SurveyFragment
 import com.ms.daelimtime.fragment.Stu_SurveyFragment
 import com.ms.daelimtime.fragment.UserInfo_Fragment
+import com.ms.daelimtime.util.DBHelper
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        var bottomNavi = findViewById<BottomNavigationView>(R.id.bottomNavi)
+        val dbHelper:DBHelper = DBHelper()
+        dbHelper.getUser()
+        val bottomNavi = findViewById<BottomNavigationView>(R.id.bottomNavi)
         supportFragmentManager.beginTransaction().replace(R.id.home_ly, Sch_SurveyFragment()).commit() //초기화면 홈 프래그먼트로 지정
         bottomNavi.setOnNavigationItemSelectedListener { item -> //바텀네비 메뉴를 클릭하면 해당하는 프래그먼트로 전환
             when(item.itemId) {
