@@ -5,22 +5,29 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import com.ms.daelimtime.R
+import android.app.Dialog
+import android.content.Context
 
-class Stu_SurveyFragment : Fragment() {
 
+
+
+class update_Fragment : Fragment() {
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_stu_survey, container, false)
-
-
-        return view
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_udate, container, false)
     }
-
 
 
 }
