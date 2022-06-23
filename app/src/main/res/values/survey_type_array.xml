@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="surveyList">
+        <item>찬성 / 반대</item>
+        <item>5지선다</item>
+    </string-array>
+</resources>

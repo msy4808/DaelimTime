@@ -2,6 +2,8 @@ package com.ms.daelimtime.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ms.daelimtime.R
 import com.ms.daelimtime.fragment.Notice_Fragment
@@ -15,8 +17,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val dbHelper:DBHelper = DBHelper()
-        dbHelper.getUser()
         val bottomNavi = findViewById<BottomNavigationView>(R.id.bottomNavi)
         supportFragmentManager.beginTransaction().replace(R.id.home_ly, Sch_SurveyFragment()).commit() //초기화면 홈 프래그먼트로 지정
         bottomNavi.setOnNavigationItemSelectedListener { item -> //바텀네비 메뉴를 클릭하면 해당하는 프래그먼트로 전환
@@ -40,5 +40,6 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
     }
 }

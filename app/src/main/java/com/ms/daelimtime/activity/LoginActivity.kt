@@ -12,33 +12,23 @@ import com.ms.daelimtime.R
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
-
-var email: String? = ""
-var name: String? = ""
-var profile_Src: String? = ""
+import com.ms.daelimtime.util.DBHelper
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        val next:Button = findViewById(R.id.next_Btn)
-
-        next.setOnClickListener{
-            val intent:Intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
-        }
-
-
-
         // 로그인 정보 확인
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
+                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
             }
             else if (tokenInfo != null) {
+                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
+                getUserData()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
-                getUserData()
                 finish()
             }
         }
@@ -81,18 +71,18 @@ class LoginActivity : AppCompatActivity() {
             }
             else if (token != null) {
                 Toast.makeText(this, "로그인에 성공하였습니다.", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 //사용자 정보(이메일 등) 가져오는 코드
                 getUserData()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 finish()
             }
         }
 
 
-        val kakao_login_button = findViewById<ImageButton>(R.id.kakao_login_button) // 로그인 버튼
+        val kakao_Btn = findViewById<ImageButton>(R.id.kakao_login_button) // 로그인 버튼
 
-        kakao_login_button.setOnClickListener {
+        kakao_Btn.setOnClickListener {
             if(UserApiClient.instance.isKakaoTalkLoginAvailable(this)){
                 UserApiClient.instance.loginWithKakaoTalk(this, callback = callback)
 
@@ -113,10 +103,11 @@ class LoginActivity : AppCompatActivity() {
                         "\n이메일: ${user.kakaoAccount?.email}" +
                         "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
                         "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
-                email = user.kakaoAccount?.email
-                name = user.kakaoAccount?.profile?.nickname
-                profile_Src = user.kakaoAccount?.profile?.thumbnailImageUrl
-                Log.i("URLTEST", "$profile_Src")
+                DBHelper.id = user.id
+                Log.d("id값 1", "${DBHelper.id}")
+                DBHelper.email = user.kakaoAccount?.email
+                DBHelper.name = user.kakaoAccount?.profile?.nickname
+                DBHelper.profile_Src = user.kakaoAccount?.profile?.thumbnailImageUrl
             }
         }
     }
