@@ -15,6 +15,8 @@ object DBHelper {
     var name: String? = ""
     var profile_Src: String? = ""
     var id: Long? = 0
+    var userClassNum : String? = ""
+    var userClass : String? = ""
 
     fun getUSerInfo(userId: Long?) {
         database.child("User").child("UID_${userId}").get().addOnSuccessListener {
@@ -33,5 +35,11 @@ object DBHelper {
 
     fun sendStudentSurvey(title: String, doc: String, type: String) {
 
+    }
+
+    fun sendUserData(userClass : String, userClassNum: String){
+        database.child("User").child("UID_${id}").child("userID").setValue(id)
+        database.child("User").child("UID_${id}").child("userClass").setValue(userClass)
+        database.child("User").child("UID_${id}").child("userClassNum").setValue(userClassNum)
     }
 }
