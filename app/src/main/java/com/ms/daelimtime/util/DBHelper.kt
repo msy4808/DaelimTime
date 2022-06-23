@@ -34,4 +34,22 @@ object DBHelper {
     fun sendStudentSurvey(title: String, doc: String, type: String) {
 
     }
+
+//    private fun checkSchool_Survey(title: String, doc: String, type: String){
+//        //전화번호 중복 체크
+//        database.child("School_Survey").child("SC_${id}").equalTo("SC_${id}")
+//            .addListenerForSingleValueEvent(object : ValueEventListener {
+//                override fun onDataChange(dataSnapshot: DataSnapshot) {
+//                    if (!dataSnapshot.exists()) {
+//                        sendSchoolSurvey(title, doc, type)
+//                    } else {
+//                        mShowShortToast("이미 등록된 번호입니다")
+//                    }
+//                }
+//
+//                override fun onCancelled(databaseError: DatabaseError) {
+//
+//                }
+//            })
+//    }
 }
