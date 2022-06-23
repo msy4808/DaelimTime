@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "655072370774",
+    "project_id": "daelimtime",
+    "storage_bucket": "daelimtime.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655072370774:android:ccec878e8bac88993fdbf7",
+        "android_client_info": {
+          "package_name": "com.ms.daelimtime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "655072370774-pecc3va54jgbe3pr728n90ha0op55n60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ms.daelimtime",
+            "certificate_hash": "7c2880d846b4439f831454fc51f130aa1ae7da7c"
+          }
+        },
+        {
+          "client_id": "655072370774-kfj22mdok9r6i25fsapb3mkisfie803q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNTSDy4DlwEILvQO_Ezxrsb31HCYSLfQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "655072370774-kfj22mdok9r6i25fsapb3mkisfie803q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
