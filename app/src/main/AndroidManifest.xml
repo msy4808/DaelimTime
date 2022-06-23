@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ms.daelimtime">
-
     <!-- 앱 권한 관련 -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".activity.GlobalApplication"
@@ -14,8 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DaelimTime">
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.SurveyEditActivity"
             android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".activity.SplashActivity"
             android:exported="true">
