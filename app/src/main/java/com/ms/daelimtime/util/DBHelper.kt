@@ -14,6 +14,7 @@ import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 object DBHelper {
+
     val database: DatabaseReference = Firebase.database.reference //레퍼런스 초기화
     var email: String? = ""
     var name: String? = ""

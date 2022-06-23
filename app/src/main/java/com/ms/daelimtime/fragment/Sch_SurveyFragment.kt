@@ -7,28 +7,60 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.ms.daelimtime.R
 import com.ms.daelimtime.activity.MainActivity
 import com.ms.daelimtime.activity.SurveyEditActivity
+import com.ms.daelimtime.adapter.RecyclerAdapter
+import com.ms.daelimtime.adapter.SurveyModel
 import com.ms.daelimtime.util.DBHelper
 
 class Sch_SurveyFragment : Fragment() {
+
+    val TAG: String = "로그"
+
+    private lateinit var recyclerAdapter: RecyclerAdapter
+    var modelList = ArrayList<SurveyModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sch_survey, container, false)
+        Log.d(TAG, "Sch_SurveyFragment - onCreateView() called")
+
         val fab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
         val title = view.findViewById<TextView>(R.id.title)
         val doc = view.findViewById<TextView>(R.id.doc)
-        val keyTest: String = DBHelper.school_List_Key.get(0)
-        title.text = DBHelper.school_Title_List.get(keyTest).toString()
-        doc.text = DBHelper.school_Doc_List.get(keyTest).toString()
+        var key: String
+//        title.text = DBHelper.school_Title_List.get(key).toString()
+//        doc.text = DBHelper.school_Doc_List.get(key).toString()
+
+
+
+        //리사이클뷰 테스트
+        val recyclerView = view.findViewById<RecyclerView>(R.id.school_Recycle)
+        for (i in 0 .. DBHelper.school_List_Key.size - 1) {
+            key = DBHelper.school_List_Key.get(i)
+            val model = SurveyModel(DBHelper.school_Title_List.get(key).toString(), DBHelper.school_Doc_List.get(key).toString())
+            modelList.add(model)
+        }
+
+        //어댑터 인스턴스 생성
+        recyclerAdapter = RecyclerAdapter()
+        recyclerAdapter.submitList(this.modelList)
+
+        //리사이클뷰 설정
+        recyclerView.apply {
+            layoutManager = LinearLayoutManager((activity as MainActivity).applicationContext, LinearLayoutManager.VERTICAL, false)
+            //어댑터 장착
+            adapter = recyclerAdapter
+        }
+
         fab.setOnClickListener { //관리자일 경우 설문 작성
             if(DBHelper.id == 2304993869) {
                 val intent:Intent = Intent((activity as MainActivity).applicationContext, SurveyEditActivity::class.java)
