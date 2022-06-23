@@ -19,6 +19,7 @@
             android:background="@drawable/card_style">
 
             <TextView
+                android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_bold"
@@ -29,6 +30,7 @@
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/doc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/notosans_bold"

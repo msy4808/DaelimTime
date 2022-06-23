@@ -6,6 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity">
 
+    <Spinner
+        android:id="@+id/class_spinner"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/userClassNum_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/userClassNum_edit"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:hint="학번을 입력하세요"
+        app:layout_constraintBottom_toTopOf="@+id/next_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <ImageButton
         android:id="@+id/kakao_login_button"
         android:layout_width="wrap_content"

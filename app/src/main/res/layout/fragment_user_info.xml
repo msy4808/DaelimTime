@@ -11,19 +11,6 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/idname_Update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수정하기"
-            app:layout_constraintBottom_toBottomOf="@+id/user_Id"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/user_Id"
-            app:layout_constraintTop_toTopOf="@+id/user_Id"
-            app:layout_constraintVertical_bias="1.0" />
-
-
-        <Button
             android:id="@+id/Logout"
             android:layout_width="204dp"
             android:layout_height="44dp"
@@ -44,108 +31,43 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.653" />
 
-        <TextView
-            android:id="@+id/id_Name"
-            android:layout_width="106dp"
-            android:layout_height="45dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="닉네임"
-            app:layout_constraintEnd_toStartOf="@+id/user_Id"
-            app:layout_constraintHorizontal_bias="0.928"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/email_Name"
-            android:layout_width="119dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="이메일"
-            app:layout_constraintBottom_toBottomOf="@+id/user_Email"
-            app:layout_constraintEnd_toStartOf="@+id/user_Email"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_Id" />
-
-        <TextView
-            android:id="@+id/studentid_Name"
-            android:layout_width="119dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="학번"
-            app:layout_constraintBottom_toBottomOf="@+id/user_StudenId"
-            app:layout_constraintEnd_toStartOf="@+id/user_StudenId"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/user_StudenId" />
-
-        <TextView
-            android:id="@+id/department_Name"
-            android:layout_width="119dp"
-            android:layout_height="42dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="학과"
-            app:layout_constraintBottom_toBottomOf="@+id/user_Department"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_StudenId" />
 
         <EditText
-            android:id="@+id/user_Id"
-            android:layout_width="172dp"
-            android:layout_height="48dp"
+            android:id="@+id/user_nickName_edit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="editable\ = true"
-
+            android:hint="닉네임"
+            app:layout_constraintBottom_toTopOf="@+id/user_class_edit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-        <!-- 수정필요       -->
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <!-- text수정필요       -->
 
         <EditText
-            android:id="@+id/user_Email"
-            android:layout_width="171dp"
-            android:layout_height="38dp"
-            android:layout_below="@id/user_Id"
-            android:enabled="false"
-
-            android:text="이메일"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_Id" />
-
-        <EditText
-            android:id="@+id/user_StudenId"
-            android:layout_width="172dp"
-            android:layout_height="48dp"
+            android:id="@+id/user_classNum_edit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
             android:layout_weight="1"
             android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="editable\ = true"
+            android:hint="학번"
+            app:layout_constraintBottom_toTopOf="@+id/Logout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_Email" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
-            android:id="@+id/user_Department"
-            android:layout_width="169dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="120dp"
+            android:id="@+id/user_class_edit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
-            android:enabled="false"
+            android:hint="학과"
             android:inputType="textPersonName"
-            android:text="editable\ = true"
+            app:layout_constraintBottom_toTopOf="@+id/user_classNum_edit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/department_Name"
-            app:layout_constraintTop_toBottomOf="@+id/user_StudenId" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,12 +2,14 @@ package com.ms.daelimtime.fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import com.ms.daelimtime.R
 import com.ms.daelimtime.activity.MainActivity
@@ -22,7 +24,11 @@ class Sch_SurveyFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sch_survey, container, false)
         val fab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
-
+        val title = view.findViewById<TextView>(R.id.title)
+        val doc = view.findViewById<TextView>(R.id.doc)
+        val keyTest: String = DBHelper.school_List_Key.get(0)
+        title.text = DBHelper.school_Title_List.get(keyTest).toString()
+        doc.text = DBHelper.school_Doc_List.get(keyTest).toString()
         fab.setOnClickListener { //관리자일 경우 설문 작성
             if(DBHelper.id == 2304993869) {
                 val intent:Intent = Intent((activity as MainActivity).applicationContext, SurveyEditActivity::class.java)

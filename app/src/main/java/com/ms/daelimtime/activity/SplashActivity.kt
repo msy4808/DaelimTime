@@ -7,6 +7,7 @@ import android.os.Handler
 import android.util.Log
 import com.ms.daelimtime.R
 import com.kakao.sdk.common.util.Utility
+import com.ms.daelimtime.util.DBHelper
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         var keyHash = Utility.getKeyHash(this) //카카오에서 지원하는 메소드로 해시키 구하기
         Log.d("키해시", keyHash)
+        DBHelper.getSurveyList()
         Handler().postDelayed({ startActivity(Intent(this, LoginActivity::class.java)) }, 1000L) //1초 딜레이 후 화면전환
     }
 
