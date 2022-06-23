@@ -6,10 +6,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import retrofit2.http.POST
-import java.util.*
+import com.ms.daelimtime.fragment.UserInfo_Fragment
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -75,7 +73,19 @@ object DBHelper {
                     student_Type_List.put(it.key, it.child("type").getValue().toString())
                 }
 
-                //User 추가
+                //User 불러오기
+                database.child("User").child("UID_${id}").child("userClass").get().addOnSuccessListener {
+                    userClass = it.value.toString()
+
+                } .addOnFailureListener {
+
+                }
+                database.child("User").child("UID_${id}").child("userClassNum").get().addOnSuccessListener {
+                    userClassNum = it.value.toString()
+
+                } .addOnFailureListener {
+                    Log.e("DBHelper","학번 가져오기 오류")
+                }
 
 
             }

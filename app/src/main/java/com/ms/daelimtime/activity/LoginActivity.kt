@@ -34,16 +34,17 @@ class LoginActivity : AppCompatActivity() {
 
             //
 
-            userClass = spinner.getSelectedItem().toString();
+            this.userClass = spinner.getSelectedItem().toString();
             //학번
             this.classNum = userClassNum_edit.text.toString()
             //
-            Log.e("dd","학번 ${classNum},  학과 ${userClass}")
-            var intent : Intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
+            Log.e("로그인 액티비티","학번 ${classNum},  학과 ${userClass}")
 
             //DB
             DBHelper.sendUserData(userClass,classNum)
+
+            var intent : Intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
         }
 
 
