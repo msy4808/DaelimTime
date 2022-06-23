@@ -19,6 +19,8 @@ object DBHelper {
     var name: String? = ""
     var profile_Src: String? = ""
     var id: Long? = 0
+    var userClassNum : String? = ""
+    var userClass : String? = ""
 
     //School_Survey 데이터 Map
     var school_List_Key: ArrayList<String> = ArrayList()
@@ -82,5 +84,11 @@ object DBHelper {
             }
         }
         database.addValueEventListener(allDatabase)
+    }
+
+    fun sendUserData(userClass : String, userClassNum: String){
+        database.child("User").child("UID_${id}").child("userID").setValue(id)
+        database.child("User").child("UID_${id}").child("userClass").setValue(userClass)
+        database.child("User").child("UID_${id}").child("userClassNum").setValue(userClassNum)
     }
 }

@@ -92,14 +92,14 @@
             app:layout_constraintTop_toBottomOf="@+id/user_StudenId" />
 
         <EditText
-            android:id="@+id/user_Id"
+            android:id="@+id/user_nickName_edit"
             android:layout_width="172dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="false"
             android:inputType="textPersonName"
-            android:text="editable\ = true"
+
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -112,40 +112,37 @@
             android:id="@+id/user_Email"
             android:layout_width="171dp"
             android:layout_height="38dp"
-            android:layout_below="@id/user_Id"
+            android:layout_below="@id/user_nickName_edit"
             android:enabled="false"
-
-            android:text="이메일"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_Id" />
+            app:layout_constraintTop_toBottomOf="@+id/user_nickName_edit" />
 
         <EditText
-            android:id="@+id/user_StudenId"
+            android:id="@+id/user_classNum_edit"
             android:layout_width="172dp"
             android:layout_height="48dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="editable\ = true"
+            android:hint="학번"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/user_Email" />
 
         <EditText
-            android:id="@+id/user_Department"
+            android:id="@+id/user_class_edit"
             android:layout_width="169dp"
             android:layout_height="42dp"
             android:layout_marginEnd="120dp"
             android:layout_weight="1"
             android:ems="10"
             android:enabled="false"
+            android:hint="학과"
             android:inputType="textPersonName"
-            android:text="editable\ = true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/department_Name"
-            app:layout_constraintTop_toBottomOf="@+id/user_StudenId" />
+            app:layout_constraintTop_toBottomOf="@+id/user_classNum_edit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.FragmentTransaction
 import com.ms.daelimtime.R
 
@@ -15,6 +16,10 @@ class UserInfo_Fragment : Fragment() {
 
     lateinit var my_Survey : Button
     lateinit var Update : Button
+
+    lateinit var userClassNum_edit : EditText
+    lateinit var userClass_edit : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +32,7 @@ class UserInfo_Fragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_user_info, container, false)
         init(view)
+        getUserData(view)
         return view
     }
 
@@ -38,7 +44,11 @@ class UserInfo_Fragment : Fragment() {
 
     }
 
+    fun getUserData(view : View){
+        userClassNum_edit = view.findViewById(R.id.user_class_edit)
+        userClass_edit = view.findViewById(R.id.user_classNum_edit)
     }
+}
 
 
 
