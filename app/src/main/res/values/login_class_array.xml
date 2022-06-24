@@ -1,13 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="class_array">
-        <item>컴퓨터 정보학부</item>
-        <item>하이</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>기계과</item>>
+        <item>전기과</item>
+        <item>토목환경과</item>
+        <item>해군기술부사관과</item>
+        <item>미래자동차학부</item>
+        <item>방송음향기술</item>
+        <item>영상디자인</item>
+        <item>실내디자인학부</item>
+        <item>컴퓨터정보학부</item>
+        <item>건축과</item>
+        <item>반도체과</item>
+        <item>소방안전설비과</item>
+        <item>스마트팩토리과</item>
+        <item>전자통신과</item>
+        <item>경영과</item>
+        <item>도서관미디어정보과</item>
+        <item>사무행정과</item>
+        <item>사회복지과</item>
+        <item>항공서비스과</item>
+        <item>호텔레저과</item>
+        <item>아동보육과</item>
+        <item>유아교육과</item>
+        <item>스포츠지도과</item>
+        <item>제과제빵커피</item>
+        <item>호텔조리과</item>
+        <item>보건안전</item>
+        <item>보건의료기기</item>
+        <item>보건의료행정</item>
+        <item>언어치료</item>
+
+
+
+
     </string-array>
 </resources>
