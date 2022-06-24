@@ -23,18 +23,19 @@
             android:layout_gravity="top|left"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/bmjua"
+            android:textColor="#0088b9"
             android:text="설문의 제목을 입력해주세요"
-            android:textSize="24dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/survey_Title"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:layout_gravity="top|left"
-            android:background="@drawable/edittext_round"
+            android:background="@drawable/add_edittext"
             android:fontFamily="@font/bmjua"
             android:hint="입력해주세요.."
-            android:paddingLeft="10dp"
+            android:paddingLeft="5dp"
             android:textSize="14dp" />
 
         <TextView
@@ -45,16 +46,17 @@
             android:layout_marginTop="30dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="@font/bmjua"
+            android:textColor="#0088b9"
             android:text="학우들에게 무엇을 물어볼까요?"
-            android:textSize="18dp" />
+            android:textSize="14dp" />
 
         <EditText
             android:id="@+id/survey_Doc"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:layout_gravity="top|center"
-            android:paddingLeft="10dp"
-            android:background="@drawable/edittext_round"
+            android:paddingLeft="5dp"
+            android:background="@drawable/add_edittext"
             android:fontFamily="@font/bmjua"
             android:hint="입력해주세요.." />
 
@@ -63,9 +65,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
+            android:textSize="14dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/bmjua"
+            android:textColor="#0088b9"
             android:text="설문 유형을 선택해주세요" />
 
         <RadioGroup

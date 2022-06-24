@@ -1,78 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.Survey_Type_A">
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:fontFamily="@font/bmjua"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="25dp"
+            android:text="제목"
+            android:textColor="#0088b9"
+            app:layout_constraintEnd_toStartOf="@+id/type_A_Title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/type_A_Title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:fontFamily="@font/bmjua"
             android:textColor="#101010"
-            android:layout_marginBottom="20dp"
-            android:textSize="24dp"/>
+            android:textSize="24dp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="@font/bmjua"
+            android:text="작성 내용"
+            android:textSize="16dp"
             android:textColor="#0088b9"
-            android:layout_marginBottom="10dp"
-            android:text="작성 내용"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_A_Title" />
+
         <TextView
             android:id="@+id/type_A_Doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#444444"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
             android:fontFamily="@font/bmjua"
-            android:textSize="18dp"/>
+            android:textColor="#444444"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textSize="18dp"
+            android:padding="10dp"
+            android:background="@drawable/card_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <RadioGroup
             android:id="@+id/a_Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:orientation="horizontal"
             android:layout_marginTop="30dp"
-            android:orientation="horizontal">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_A_Doc">
 
             <RadioButton
                 android:id="@+id/a_Btn_1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/bmjua"
                 android:layout_marginRight="15dp"
-                android:text="찬성"/>
+                android:fontFamily="@font/bmjua"
+                android:text="찬성" />
+
             <RadioButton
                 android:id="@+id/a_Btn_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:fontFamily="@font/bmjua"
-                android:text="반대"/>
+                android:text="반대" />
         </RadioGroup>
 
         <Button
             android:id="@+id/success_Btn_A"
             android:layout_width="match_parent"
-            android:layout_margin="30dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_dt"
-            android:textColor="@color/white"
-            android:fontFamily="@font/bmjua"
             android:layout_gravity="center"
-            android:text="설문완료" />
-    </LinearLayout>
+            android:layout_margin="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/round_dt"
+            android:fontFamily="@font/bmjua"
+            android:text="설문완료"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
