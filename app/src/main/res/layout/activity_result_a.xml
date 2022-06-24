@@ -18,7 +18,7 @@
             android:id="@+id/result_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:layout_marginBottom="40dp"
             android:textSize="24dp" />
 
@@ -26,14 +26,23 @@
             android:id="@+id/result_Doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:layout_marginBottom="40dp"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/sum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
+            android:gravity="right"
+            android:text="참여인원 : " />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="찬성"
             android:layout_marginBottom="10dp"
@@ -49,7 +58,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="반대"
             android:layout_marginBottom="10dp"
@@ -62,6 +71,5 @@
             android:layout_width="match_parent"
             android:layout_height="50dp" />
     </LinearLayout>
-
 
 </LinearLayout>

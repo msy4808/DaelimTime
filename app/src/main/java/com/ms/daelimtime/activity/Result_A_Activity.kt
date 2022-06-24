@@ -6,6 +6,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.ms.daelimtime.R
 import com.ms.daelimtime.util.DBHelper
+import java.time.LocalDate
 
 class Result_A_Activity : AppCompatActivity() {
     private lateinit var title: String
@@ -19,6 +20,7 @@ class Result_A_Activity : AppCompatActivity() {
 
         val resultTitle = findViewById<TextView>(R.id.result_Title)
         val resultDoc = findViewById<TextView>(R.id.result_Doc)
+        val resultSum = findViewById<TextView>(R.id.sum)
         val agreeBar = findViewById<ProgressBar>(R.id.agreeBar)
         val opposeBar = findViewById<ProgressBar>(R.id.opposeBar)
         var agree = 0
@@ -35,7 +37,7 @@ class Result_A_Activity : AppCompatActivity() {
                         oppose = Integer.parseInt(it.child("oppose").getValue().toString())
                         agreeBar.max = agree + oppose
                         opposeBar.max = agree + oppose
-
+                        resultSum.text = "참여인원 : ${agree + oppose}"
                         agreeBar.progress = agree
                         opposeBar.progress = oppose
                     }
@@ -45,6 +47,7 @@ class Result_A_Activity : AppCompatActivity() {
                     oppose = Integer.parseInt(it.child("oppose").getValue().toString())
                     agreeBar.max = agree + oppose
                     opposeBar.max = agree + oppose
+                    resultSum.text = "참여인원 : ${agree + oppose}"
                     agreeBar.progress = agree
                     opposeBar.progress = oppose
                 }

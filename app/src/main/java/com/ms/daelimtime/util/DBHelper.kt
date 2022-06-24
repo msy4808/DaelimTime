@@ -10,6 +10,7 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.ms.daelimtime.fragment.UserInfo_Fragment
+import java.time.LocalDate
 import java.util.stream.Collectors
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
@@ -38,20 +39,22 @@ object DBHelper {
     var student_Doc_List: HashMap<String?, Any> = HashMap()
     var student_Type_List: HashMap<String?, Any> = HashMap()
 
-    fun sendSchoolSurvey(title: String, doc: String, type: String) {
+    fun sendSchoolSurvey(title: String, doc: String, type: String, date: LocalDate) {
         database.child("School_Survey").child("SC_${title}").child("title").setValue(title)
         database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
         database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
         database.child("School_Survey").child("SC_${title}").child("id").setValue(id)
-
+        database.child("School_Survey").child("SC_${title}").child("date").setValue(date)
 
     }
 
-    fun sendStudentSurvey(title: String, doc: String, type: String) {
+    fun sendStudentSurvey(title: String, doc: String, type: String, date: LocalDate) {
         database.child("Student_Survey").child("ST_${title}").child("title").setValue(title)
         database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
         database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
         database.child("Student_Survey").child("ST_${title}").child("id").setValue(id)
+        database.child("School_Survey").child("SC_${title}").child("date").setValue(date)
+
     }
 
     fun getSurveyList() {

@@ -17,7 +17,7 @@
             android:id="@+id/result_Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:layout_marginBottom="40dp"
             android:textSize="24dp" />
 
@@ -25,14 +25,22 @@
             android:id="@+id/result_Doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:layout_marginBottom="40dp"
             android:textSize="18dp" />
 
         <TextView
+            android:id="@+id/sum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
+            android:gravity="right"
+            android:text="참여인원 : " />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="매우 그렇다"
             android:textSize="14dp" />
@@ -47,7 +55,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="약간 그렇게 생각함"
             android:textSize="14dp" />
@@ -62,7 +70,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="보통이다 혹은 잘 모르겠다"
             android:textSize="14dp" />
@@ -77,7 +85,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="약간 아닌듯함"
             android:textSize="14dp" />
@@ -92,7 +100,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_bold"
+            android:fontFamily="@font/bmjua"
             android:textColor="@color/black"
             android:text="이건 아니다..."
             android:textSize="14dp" />

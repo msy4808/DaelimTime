@@ -96,6 +96,17 @@
                 android:fontFamily="@font/bmjua"
                 android:text="5지선다" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/time_Text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmjua"
+            android:textColor="#0088b9"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="14dp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -116,6 +127,5 @@
             android:fontFamily="@font/bmjua"
             android:outlineProvider="none"
             android:text="설문등록" />
-
     </LinearLayout>
 </LinearLayout>

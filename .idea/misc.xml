@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/AndProj/DaelimTime/app/src/main/res/layout/card_survey.xml" value="0.2427536231884058" />
-        <entry key="..\:/AndProj/DaelimTime/app/src/main/res/layout/fragment_user_info.xml" value="0.2427536231884058" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/drawable-v24/nav_icon_color.xml" value="0.1" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/drawable/add_edittext.xml" value="0.1" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/drawable/baseline_feed_24.xml" value="0.1" />
@@ -16,6 +14,7 @@
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_login.xml" value="0.32382246376811596" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_result.xml" value="0.3491847826086957" />
+        <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_result_a.xml" value="0.19375" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_result_b.xml" value="0.3491847826086957" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_splash.xml" value="0.32382246376811596" />
         <entry key="..\:/Android_Project/DaelimTime/app/src/main/res/layout/activity_survey_edit.xml" value="0.3333333333333333" />

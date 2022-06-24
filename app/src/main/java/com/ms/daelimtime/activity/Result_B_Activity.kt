@@ -20,6 +20,7 @@ class Result_B_Activity : AppCompatActivity() {
 
         val resultTitle = findViewById<TextView>(R.id.result_Title)
         val resultDoc = findViewById<TextView>(R.id.result_Doc)
+        val sum = findViewById<TextView>(R.id.sum)
         val vgBar = findViewById<ProgressBar>(R.id.vgBar)
         val gBar = findViewById<ProgressBar>(R.id.gBar)
         val mBar = findViewById<ProgressBar>(R.id.mBar)
@@ -50,6 +51,8 @@ class Result_B_Activity : AppCompatActivity() {
                         bBar.max = veryGood + good + middle + bad + veryBad
                         vbBar.max = veryGood + good + middle + bad + veryBad
 
+                        sum.text = "참여인원 : ${veryGood + good + middle + bad + veryBad}"
+
                         vgBar.progress = veryGood
                         gBar.progress = good
                         mBar.progress = middle
@@ -70,6 +73,8 @@ class Result_B_Activity : AppCompatActivity() {
                     mBar.max = veryGood + good + middle + bad + veryBad
                     bBar.max = veryGood + good + middle + bad + veryBad
                     vbBar.max = veryGood + good + middle + bad + veryBad
+
+                    sum.text = "참여인원 : ${veryGood + good + middle + bad + veryBad}"
 
                     vgBar.progress = veryGood
                     gBar.progress = good
