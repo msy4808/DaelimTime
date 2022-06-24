@@ -9,9 +9,8 @@ import com.ms.daelimtime.R
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val TAG: String = "로그"
 
-    private val cardTitle = itemView.findViewById<TextView>(R.id.title)
-    private val cardDoc = itemView.findViewById<TextView>(R.id.doc)
-
+    val cardTitle = itemView.findViewById<TextView>(R.id.title)
+    val cardDoc = itemView.findViewById<TextView>(R.id.doc)
     //기본생성자
     init {
         Log.d(TAG, "ViewHolder - init() called")

@@ -1,12 +1,15 @@
 package com.ms.daelimtime.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ms.daelimtime.R
+import com.ms.daelimtime.activity.SurveyPage
 
-class RecyclerAdapter : RecyclerView.Adapter<ViewHolder>(){
+class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>(){
 
     val TAG: String = "로그"
 
@@ -21,6 +24,18 @@ class RecyclerAdapter : RecyclerView.Adapter<ViewHolder>(){
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d(TAG, "RecyclerAdapter - onBindViewHolder() called / position : $position")
         holder.bind(this.modelList[position])
+        holder.itemView.setOnClickListener{
+            if(position != RecyclerView.NO_POSITION){
+                //클릭 이벤트
+                val intent = Intent(context, SurveyPage::class.java)
+                val title = holder.cardTitle.text
+                val doc = holder.cardDoc.text
+                intent.putExtra("title", title)
+                intent.putExtra("doc", doc)
+                if (context != null) {
+                    context.startActivity(intent)
+                }
+            }}
     }
 
     //목록의 아이템 수

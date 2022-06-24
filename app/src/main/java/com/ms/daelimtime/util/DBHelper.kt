@@ -38,16 +38,20 @@ object DBHelper {
     var student_Type_List: HashMap<String?, Any> = HashMap()
 
     fun sendSchoolSurvey(title: String, doc: String, type: String) {
-        database.child("School_Survey").child("SC_${id}_${title}").child("title").setValue(title)
-        database.child("School_Survey").child("SC_${id}_${title}").child("doc").setValue(doc)
-        database.child("School_Survey").child("SC_${id}_${title}").child("type").setValue(type)
+        database.child("School_Survey").child("SC_${title}").child("title").setValue(title)
+        database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
+        database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
+        database.child("School_Survey").child("SC_${title}").child("id").setValue(id)
+
 
     }
 
     fun sendStudentSurvey(title: String, doc: String, type: String) {
-        database.child("Student_Survey").child("ST_${id}_${title}").child("title").setValue(title)
-        database.child("Student_Survey").child("ST_${id}_${title}").child("doc").setValue(doc)
-        database.child("Student_Survey").child("ST_${id}_${title}").child("type").setValue(type)
+        database.child("Student_Survey").child("ST_${title}").child("title").setValue(title)
+        database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
+        database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
+        database.child("Student_Survey").child("ST_${title}").child("id").setValue(id)
+
     }
 
     fun getSurveyList() {
@@ -85,7 +89,6 @@ object DBHelper {
                 } .addOnFailureListener {
                     Log.e("DBHelper","학번 가져오기 오류")
                 }
-                Log.d("이게뭐지", school_List_Key.toString())
             }
             override fun onCancelled(datasnapshot: DatabaseError) {
                 Log.d("데이터베이스 에러", "ERROR")

@@ -64,7 +64,7 @@ class Sch_SurveyFragment : Fragment() {
         }
 
         //어댑터 인스턴스 생성
-        recyclerAdapter = RecyclerAdapter()
+        recyclerAdapter = RecyclerAdapter(context)
         recyclerAdapter.submitList(modelList)
 
         //리사이클뷰 설정
