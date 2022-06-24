@@ -24,6 +24,7 @@ object DBHelper {
     var id: Long? = 0
     var userClassNum : String? = ""
     var userClass : String? = ""
+    var userNickName : String? = ""
 
     //School_Survey 데이터 Map
     var school_List_Key: ArrayList<String> = ArrayList()
@@ -38,20 +39,16 @@ object DBHelper {
     var student_Type_List: HashMap<String?, Any> = HashMap()
 
     fun sendSchoolSurvey(title: String, doc: String, type: String) {
-        database.child("School_Survey").child("SC_${title}").child("title").setValue(title)
-        database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
-        database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
-        database.child("School_Survey").child("SC_${title}").child("id").setValue(id)
-
+        database.child("School_Survey").child("SC_${id}_${title}").child("title").setValue(title)
+        database.child("School_Survey").child("SC_${id}_${title}").child("doc").setValue(doc)
+        database.child("School_Survey").child("SC_${id}_${title}").child("type").setValue(type)
 
     }
 
     fun sendStudentSurvey(title: String, doc: String, type: String) {
-        database.child("Student_Survey").child("ST_${title}").child("title").setValue(title)
-        database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
-        database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
-        database.child("Student_Survey").child("ST_${title}").child("id").setValue(id)
-
+        database.child("Student_Survey").child("ST_${id}_${title}").child("title").setValue(title)
+        database.child("Student_Survey").child("ST_${id}_${title}").child("doc").setValue(doc)
+        database.child("Student_Survey").child("ST_${id}_${title}").child("type").setValue(type)
     }
 
     fun getSurveyList() {
@@ -77,18 +74,29 @@ object DBHelper {
                 }
 
                 //User 불러오기
+                //학과
                 database.child("User").child("UID_${id}").child("userClass").get().addOnSuccessListener {
                     userClass = it.value.toString()
 
                 } .addOnFailureListener {
 
                 }
+                //학번
                 database.child("User").child("UID_${id}").child("userClassNum").get().addOnSuccessListener {
                     userClassNum = it.value.toString()
 
                 } .addOnFailureListener {
                     Log.e("DBHelper","학번 가져오기 오류")
                 }
+                //닉네임
+                database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
+                    userNickName = it.value.toString()
+
+                } .addOnFailureListener {
+                    Log.e("DBHelper","닉네임 가져오기 오류")
+                }
+
+
             }
             override fun onCancelled(datasnapshot: DatabaseError) {
                 Log.d("데이터베이스 에러", "ERROR")
@@ -97,9 +105,12 @@ object DBHelper {
         database.addValueEventListener(allDatabase)
     }
 
-    fun sendUserData(userClass : String, userClassNum: String){
-        database.child("User").child("UID_${id}").child("userID").setValue(id)
+    fun sendUserData(userNickName : String,userClass : String, userClassNum: String){
+
         database.child("User").child("UID_${id}").child("userClass").setValue(userClass)
         database.child("User").child("UID_${id}").child("userClassNum").setValue(userClassNum)
+        database.child("User").child("UID_${id}").child("userNickName").setValue(userNickName)
     }
+
+
 }
