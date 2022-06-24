@@ -31,13 +31,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.653" />
 
+        <EditText
+            android:id="@+id/userName_edit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:enabled="false"
+            android:hint="이름"
+            app:layout_constraintBottom_toTopOf="@+id/user_nickName_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
 
         <EditText
             android:id="@+id/user_nickName_edit"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:layout_weight="1"
-            android:ems="10"
             android:enabled="false"
             android:hint="닉네임"
             app:layout_constraintBottom_toTopOf="@+id/user_class_edit"
@@ -50,8 +60,7 @@
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginBottom="30dp"
-            android:layout_weight="1"
-            android:ems="10"
+            android:enabled="false"
             android:hint="학번"
             app:layout_constraintBottom_toTopOf="@+id/Logout"
             app:layout_constraintEnd_toEndOf="parent"
@@ -63,8 +72,8 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:ems="10"
+            android:enabled="false"
             android:hint="학과"
-            android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/user_classNum_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

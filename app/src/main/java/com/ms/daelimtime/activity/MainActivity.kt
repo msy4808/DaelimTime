@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         val bottomNavi = findViewById<BottomNavigationView>(R.id.bottomNavi)
         supportFragmentManager.beginTransaction().replace(R.id.home_ly, Sch_SurveyFragment()).commit() //초기화면 홈 프래그먼트로 지정
         bottomNavi.setOnNavigationItemSelectedListener { item -> //바텀네비 메뉴를 클릭하면 해당하는 프래그먼트로 전환

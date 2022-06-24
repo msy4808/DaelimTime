@@ -19,6 +19,7 @@ object DBHelper {
     var id: Long? = 0
     var userClassNum : String? = ""
     var userClass : String? = ""
+    var userNickName : String? = ""
 
     //School_Survey 데이터 Map
     var school_List_Key: ArrayList<String> = ArrayList()
@@ -73,14 +74,23 @@ object DBHelper {
                 }
 
                 //User 불러오기
+                //학과
                 database.child("User").child("UID_${id}").child("userClass").get().addOnSuccessListener {
                     userClass = it.value.toString()
 
                 } .addOnFailureListener {
 
                 }
+                //학번
                 database.child("User").child("UID_${id}").child("userClassNum").get().addOnSuccessListener {
                     userClassNum = it.value.toString()
+
+                } .addOnFailureListener {
+                    Log.e("DBHelper","학번 가져오기 오류")
+                }
+                //닉네임
+                database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
+                    userNickName = it.value.toString()
 
                 } .addOnFailureListener {
                     Log.e("DBHelper","학번 가져오기 오류")
@@ -96,9 +106,12 @@ object DBHelper {
         database.addValueEventListener(allDatabase)
     }
 
-    fun sendUserData(userClass : String, userClassNum: String){
-        database.child("User").child("UID_${id}").child("userID").setValue(id)
+    fun sendUserData(userNickName : String,userClass : String, userClassNum: String){
+
         database.child("User").child("UID_${id}").child("userClass").setValue(userClass)
         database.child("User").child("UID_${id}").child("userClassNum").setValue(userClassNum)
+        database.child("User").child("UID_${id}").child("userNickName").setValue(userNickName)
     }
+
+
 }

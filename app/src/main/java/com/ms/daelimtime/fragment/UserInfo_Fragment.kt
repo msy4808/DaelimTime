@@ -12,6 +12,9 @@ import android.widget.EditText
 import androidx.fragment.app.FragmentTransaction
 import com.ms.daelimtime.R
 import com.ms.daelimtime.util.DBHelper
+import com.ms.daelimtime.util.DBHelper.userClass
+import com.ms.daelimtime.util.DBHelper.userClassNum
+import com.ms.daelimtime.util.DBHelper.userNickName
 
 
 class UserInfo_Fragment : Fragment() {
@@ -19,6 +22,9 @@ class UserInfo_Fragment : Fragment() {
     lateinit var my_Survey : Button
     lateinit var Update : Button
 
+
+    lateinit var userName_edit : EditText
+    lateinit var userNickname_edit : EditText
     lateinit var userClassNum_edit : EditText
     lateinit var userClass_edit : EditText
 
@@ -44,10 +50,18 @@ class UserInfo_Fragment : Fragment() {
     }
 
     fun init(view : View){
-        userClassNum_edit = view.findViewById(R.id.user_classNum_edit)
-        userClass_edit = view.findViewById(R.id.user_class_edit)
+        //EditText 선언부
+        userName_edit = view.findViewById(R.id.userName_edit) //카카오로 받은 사용자 이름
+        userNickname_edit = view.findViewById(R.id.user_nickName_edit) // 닉네임
+        userClassNum_edit = view.findViewById(R.id.user_classNum_edit) // 학번
+        userClass_edit = view.findViewById(R.id.user_class_edit) //학과
+
+        //My Info setText
+        userName_edit.setText(DBHelper.name)
+
         userClassNum_edit.setText(DBHelper.userClassNum)
         userClass_edit.setText(DBHelper.userClass)
+        userNickname_edit.setText(DBHelper.userNickName)
 
 
         my_Survey = view.findViewById(R.id.my_Survey)
