@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ms.daelimtime.R
 import com.ms.daelimtime.fragment.Notice_Fragment
@@ -12,7 +13,12 @@ import com.ms.daelimtime.fragment.Stu_SurveyFragment
 import com.ms.daelimtime.fragment.UserInfo_Fragment
 import com.ms.daelimtime.util.DBHelper
 
+
+
 class MainActivity : AppCompatActivity() {
+    private final var FINISH_INTERVAL_TIME: Long = 2000
+    private var backPressedTime: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,5 +49,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    } override fun onBackPressed() {
+        if(supportFragmentManager.backStackEntryCount == 0) {
+            var tempTime = System.currentTimeMillis();
+            var intervalTime = tempTime - backPressedTime;
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+                super.onBackPressed();
+            } else {
+                backPressedTime = tempTime;
+                Toast.makeText(this, "'뒤로' 버튼을 한 번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+                return
+            }
+        }
+        super.onBackPressed();
     }
 }

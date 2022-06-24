@@ -1,6 +1,8 @@
 package com.ms.daelimtime.util
 
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -8,10 +10,13 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.ms.daelimtime.fragment.UserInfo_Fragment
+import java.util.stream.Collectors
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
 object DBHelper {
+    val TAG: String = "로그"
+
     val database: DatabaseReference = Firebase.database.reference //레퍼런스 초기화
     var email: String? = ""
     var name: String? = ""
@@ -33,14 +38,6 @@ object DBHelper {
     var student_Doc_List: HashMap<String?, Any> = HashMap()
     var student_Type_List: HashMap<String?, Any> = HashMap()
 
-    fun getUSerInfo(userId: Long?) {
-        database.child("User").child("UID_${id}").get().addOnSuccessListener {
-            Log.i("firebase", "Got value ${it.value}")
-        }.addOnFailureListener {
-            Log.e("firebase", "Error getting data", it)
-        }.toString()
-    }
-
     fun sendSchoolSurvey(title: String, doc: String, type: String) {
         database.child("School_Survey").child("SC_${id}_${title}").child("title").setValue(title)
         database.child("School_Survey").child("SC_${id}_${title}").child("doc").setValue(doc)
@@ -57,6 +54,9 @@ object DBHelper {
     fun getSurveyList() {
         val allDatabase = object : ValueEventListener {
             override fun onDataChange(datasnapshot: DataSnapshot) {
+                Log.d(TAG, "DBHelper - getSurveyList() called")
+                school_List_Key.clear()
+                student_List_Key.clear()
                 //School Map GetData
                 datasnapshot.child("School_Survey").children.forEach {
                     school_List_Key.add(it.key!!)
@@ -88,6 +88,7 @@ object DBHelper {
                 } .addOnFailureListener {
                     Log.e("DBHelper","학번 가져오기 오류")
                 }
+<<<<<<< HEAD
                 //닉네임
                 database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
                     userNickName = it.value.toString()
@@ -97,8 +98,10 @@ object DBHelper {
                 }
 
 
+=======
+                Log.d("이게뭐지", school_List_Key.toString())
+>>>>>>> adf9dd8afef848891b41577c1946ee95eda01c59
             }
-
             override fun onCancelled(datasnapshot: DatabaseError) {
                 Log.d("데이터베이스 에러", "ERROR")
             }

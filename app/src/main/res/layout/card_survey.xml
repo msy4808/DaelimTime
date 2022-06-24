@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:background="@drawable/card_style"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/notosans_bold"
+        android:text="테스트 설문입니다"
+        android:textColor="#2E2E2E"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/doc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/notosans_bold"
+        android:text="여러분은 어떻게 생각하세요?"
+        android:textColor="#6E6E6E"
+        android:textSize="14dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/notosans_bold"
+        android:text="관리자"
+        android:textColor="#6E6E6E"
+        android:textSize="12dp" />
+</LinearLayout>
