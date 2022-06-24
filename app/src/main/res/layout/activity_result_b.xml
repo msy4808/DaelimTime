@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".activity.Result_B_Activity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_style"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/result_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:layout_marginBottom="40dp"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/result_Doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:layout_marginBottom="40dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="매우 그렇다"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/vgBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:progressTint="#0f698a"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="약간 그렇게 생각함"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/gBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="#0f698a"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="보통이다 혹은 잘 모르겠다"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/mBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:progressTint="#0f698a"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="약간 아닌듯함"
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/bBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="#0f698a"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="이건 아니다..."
+            android:textSize="14dp" />
+
+        <ProgressBar
+            android:id="@+id/vbBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="#0f698a"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+</LinearLayout>

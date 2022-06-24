@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".activity.Result_A_Activity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_style"
+        android:padding="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/result_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:layout_marginBottom="40dp"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/result_Doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:layout_marginBottom="40dp"
+            android:textSize="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="찬성"
+            android:layout_marginBottom="10dp"
+            android:textSize="16dp" />
+
+        <ProgressBar
+            android:id="@+id/agreeBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:progressTint="@color/main_color"
+            android:layout_height="50dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_bold"
+            android:textColor="@color/black"
+            android:text="반대"
+            android:layout_marginBottom="10dp"
+            android:textSize="16dp" />
+
+        <ProgressBar
+            android:id="@+id/opposeBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressTint="#DF3A01"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

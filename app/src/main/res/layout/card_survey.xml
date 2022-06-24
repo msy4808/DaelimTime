@@ -35,7 +35,6 @@
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
         android:fontFamily="@font/notosans_bold"
-        android:text="관리자"
         android:textColor="#6E6E6E"
         android:textSize="12dp" />
 </LinearLayout>

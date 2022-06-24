@@ -5,16 +5,17 @@ import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ms.daelimtime.R
+import com.ms.daelimtime.activity.Result_A_Activity
+import com.ms.daelimtime.activity.Result_B_Activity
 import com.ms.daelimtime.activity.SurveyPage
 import com.ms.daelimtime.util.DBHelper
 
 class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
 
     val TAG: String = "로그"
-
+    private var type = ""
     private var modelList = ArrayList<SurveyModel>()
     lateinit var title: CharSequence
     lateinit var doc: CharSequence
@@ -62,22 +63,58 @@ class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>(
 
                                         intent.putExtra("title", title)
                                         intent.putExtra("doc", doc)
-                                        if (context != null) {
+                                        if (context != null) { //인탠트 null 검사
                                             context.startActivity(intent)
                                         }
                                     }
-                                    else -> {
-                                        Toast.makeText(
-                                            context,
-                                            "이미 참여한 설문 입니다",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
+                                    else -> { //참여한 설문이면 ResultActivity로 넘겨주기
+                                        DBHelper.database.child("Student_Survey").child("ST_${title}").child("type").get().addOnSuccessListener {
+                                            when(it.value) { //A설문 일경우 Result A 로 이동
+                                                "A" -> {
+                                                    val intent = Intent(context, Result_A_Activity::class.java)
+                                                    intent.putExtra("title", title)
+                                                    intent.putExtra("doc", doc)
+                                                    if (context != null) { //인탠트 null 검사
+                                                        context.startActivity(intent)
+                                                    }
+                                                }
+                                                else -> {
+                                                    //B로 이동
+                                                    val intent = Intent(context, Result_B_Activity::class.java)
+                                                    intent.putExtra("title", title)
+                                                    intent.putExtra("doc", doc)
+                                                    if (context != null) { //인탠트 null 검사
+                                                        context.startActivity(intent)
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
                     }
-                    else -> {
-                        Toast.makeText(context, "이미 참여한 설문 입니다", Toast.LENGTH_SHORT).show()
+                    else -> { //참여한 설문이면 ResultActivity로 넘겨주기
+                        DBHelper.database.child("School_Survey").child("SC_${title}").child("type").get().addOnSuccessListener {
+                            when(it.value) { //A설문 일경우 Result A 로 이동
+                                "A" -> {
+                                    val intent = Intent(context, Result_A_Activity::class.java)
+                                    intent.putExtra("title", title)
+                                    intent.putExtra("doc", doc)
+                                    if (context != null) { //인탠트 null 검사
+                                        context.startActivity(intent)
+                                    }
+                                }
+                                else -> {
+                                    //B로 이동
+                                    val intent = Intent(context, Result_B_Activity::class.java)
+                                    intent.putExtra("title", title)
+                                    intent.putExtra("doc", doc)
+                                    if (context != null) { //인탠트 null 검사
+                                        context.startActivity(intent)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
