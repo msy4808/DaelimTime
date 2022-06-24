@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ms.daelimtime.R
+import com.ms.daelimtime.util.DBHelper
 
 class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val TAG: String = "로그"
@@ -20,9 +21,29 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     //데이터와 뷰를 묶는다
     fun bind(model: SurveyModel){
         Log.d(TAG, "ViewHolder - bind() called")
+        getEditor(model.title)
         cardTitle.text = model.title
         cardDoc.text = model.doc
-        cardEditor.text = model.editor
 
+    }
+    fun getEditor(title: String){
+        DBHelper.database.child("School_Survey").child("SC_${title}").child("id").get().addOnSuccessListener {
+            when(it.value) {
+                null -> {
+                    DBHelper.database.child("Student_Survey").child("ST_${title}").child("id").get().addOnSuccessListener {
+                        val id = it.value
+                        DBHelper.database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
+                            cardEditor.text = it.value.toString()
+                        }
+                    }
+                }
+                else -> {
+                    val id = it.value
+                    DBHelper.database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
+                        cardEditor.text = it.value.toString()
+                    }
+                }
+            }
+        }
     }
 }

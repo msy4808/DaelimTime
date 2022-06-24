@@ -42,6 +42,8 @@ object DBHelper {
         database.child("School_Survey").child("SC_${title}").child("title").setValue(title)
         database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
         database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
+        database.child("School_Survey").child("SC_${title}").child("id").setValue(id)
+
 
     }
 
@@ -49,6 +51,7 @@ object DBHelper {
         database.child("Student_Survey").child("ST_${title}").child("title").setValue(title)
         database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
         database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
+        database.child("Student_Survey").child("ST_${title}").child("id").setValue(id)
     }
 
     fun getSurveyList() {
