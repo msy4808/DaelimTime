@@ -11,7 +11,7 @@ import com.ms.daelimtime.util.DBHelper
 class SurveyEditActivity : AppCompatActivity() {
     lateinit var edit_Title: EditText
     lateinit var edit_Doc: EditText
-    lateinit var typeSpinner: Spinner
+    lateinit var type_Group: RadioGroup
     lateinit var type: String
     var selectType:String = "A"
 
@@ -20,34 +20,22 @@ class SurveyEditActivity : AppCompatActivity() {
         setContentView(R.layout.activity_survey_edit)
         val sendBtn:Button = findViewById(R.id.send_Btn)
         type = intent.getStringExtra("type").toString()
-        typeSpinner = findViewById<Spinner>(R.id.survey_Type)
+        type_Group = findViewById(R.id.survey_Type)
         edit_Title = findViewById(R.id.survey_Title)
         edit_Doc = findViewById(R.id.survey_Doc)
-        typeSpinner.adapter = ArrayAdapter.createFromResource(
-            applicationContext,
-            R.array.surveyList,
-            android.R.layout.simple_spinner_item
-        )
-        typeSpinner.setSelection(0)
-        typeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                when(position){
-                    0 -> {
-                        selectType = "A"
-                    }
-                    1 -> {
-                        selectType = "B"
-                    }
+
+        type_Group.check(R.id.survey_Type_Btn_A)
+        type_Group.setOnCheckedChangeListener { group, itemId ->
+            when(itemId){
+                R.id.survey_Type_Btn_A -> {
+                    selectType = "A"
+                }
+                R.id.survey_Type_Btn_B -> {
+                    selectType = "B"
                 }
             }
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-            }
         }
+
         sendBtn.setOnClickListener {
             if(edit_Title.length() == 0 || edit_Doc.length() == 0){
                 Toast.makeText(applicationContext, "내용을 모두 입력해주세요.", Toast.LENGTH_SHORT).show()

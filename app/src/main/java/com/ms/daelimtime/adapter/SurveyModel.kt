@@ -2,7 +2,7 @@ package com.ms.daelimtime.adapter
 
 import android.util.Log
 
-class SurveyModel(var title: String, var doc: String) {
+class SurveyModel(var title: String, var doc: String, var editor: String) {
 
     val TAG: String = "로그"
 

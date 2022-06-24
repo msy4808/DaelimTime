@@ -16,7 +16,7 @@ import com.ms.daelimtime.util.DBHelper
 class Survey_Type_A : Fragment() {
     val TAG: String = "로그"
 
-    var result: String = ""
+    var result: String = "A"
     var title: String = ""
     var table: String = ""
     override fun onCreateView(
@@ -29,6 +29,7 @@ class Survey_Type_A : Fragment() {
 
         val group = view.findViewById<RadioGroup>(R.id.a_Group)
         val btn = view.findViewById<Button>(R.id.success_Btn_A)
+        group.check(R.id.a_Btn_1)
         arguments?.getString("title")?.let { //arauments로 전달한 데이터 확인
             title = it
         }
@@ -64,19 +65,26 @@ class Survey_Type_A : Fragment() {
             if(it.value == null && result == "찬성") {
                 DBHelper.database.child("Result").child(title).child("agree").setValue(1)
                 DBHelper.database.child("Result").child(title).child("oppose").setValue(0)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             }else if(it.value == null && result == "반대"){
                 DBHelper.database.child("Result").child(title).child("agree").setValue(0)
                 DBHelper.database.child("Result").child(title).child("oppose").setValue(1)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
+
             }else{
                 if(result == "찬성") {
                     DBHelper.database.child("Result").child(title).child("agree").get().addOnSuccessListener {
                         val i = Integer.parseInt(it.value.toString())
                         DBHelper.database.child("Result").child(title).child("agree").setValue(i+1)
+                        DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
+
                     }
                 }else{
                     DBHelper.database.child("Result").child(title).child("oppose").get().addOnSuccessListener {
                         val i = Integer.parseInt(it.value.toString())
                         DBHelper.database.child("Result").child(title).child("oppose").setValue(i+1)
+                        DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
+
                     }
                 }
             }
