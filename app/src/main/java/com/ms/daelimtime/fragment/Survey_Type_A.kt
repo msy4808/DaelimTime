@@ -1,7 +1,6 @@
 package com.ms.daelimtime.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +15,9 @@ import com.ms.daelimtime.util.DBHelper
 class Survey_Type_A : Fragment() {
     val TAG: String = "로그"
 
-    var result: String = "A"
-    var title: String = ""
-    var table: String = ""
+    private var result: String = "찬성"
+    private var title: String = ""
+    private var table: String = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -60,7 +59,7 @@ class Survey_Type_A : Fragment() {
         }
         return view
     }
-    fun checkUserSelect(){ //사용자가 선택한 버튼 값 검사 후 데이터 update
+    private fun checkUserSelect(){ //사용자가 선택한 버튼 값 검사 후 데이터 update
         DBHelper.database.child("Result").child(title).get().addOnSuccessListener {
             if(it.value == null && result == "찬성") {
                 DBHelper.database.child("Result").child(title).child("agree").setValue(1)
@@ -70,16 +69,14 @@ class Survey_Type_A : Fragment() {
                 DBHelper.database.child("Result").child(title).child("agree").setValue(0)
                 DBHelper.database.child("Result").child(title).child("oppose").setValue(1)
                 DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
-
             }else{
                 if(result == "찬성") {
                     DBHelper.database.child("Result").child(title).child("agree").get().addOnSuccessListener {
                         val i = Integer.parseInt(it.value.toString())
                         DBHelper.database.child("Result").child(title).child("agree").setValue(i+1)
                         DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
-
                     }
-                }else{
+                }else if(result == "반대"){
                     DBHelper.database.child("Result").child(title).child("oppose").get().addOnSuccessListener {
                         val i = Integer.parseInt(it.value.toString())
                         DBHelper.database.child("Result").child(title).child("oppose").setValue(i+1)
