@@ -1,5 +1,6 @@
 package com.ms.daelimtime.activity
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -12,7 +13,6 @@ import com.ms.daelimtime.fragment.Sch_SurveyFragment
 import com.ms.daelimtime.fragment.Stu_SurveyFragment
 import com.ms.daelimtime.fragment.UserInfo_Fragment
 import com.ms.daelimtime.util.DBHelper
-
 
 
 class MainActivity : AppCompatActivity() {

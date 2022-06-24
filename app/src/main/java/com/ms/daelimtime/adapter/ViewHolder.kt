@@ -20,32 +20,10 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         Log.d(TAG, "ViewHolder - init() called")
     }
 
-    fun setClickEvent(title: String){
-            DBHelper.database.child("School_Survey").child("SC_${title}").get().addOnSuccessListener {
-                when(it.value) {
-                    null -> {
-                        DBHelper.database.child("Student_Survey").child("ST_${title}").get().addOnSuccessListener {
-                            del_Btn.setOnClickListener {
-                                DBHelper.database.child("Student_Survey").child("ST_${title}").setValue(null)
-                                DBHelper.database.child("Result").child("ST_${title}").setValue(null)
-                            }
-                        }
-                    }
-                    else -> {
-                        del_Btn.setOnClickListener {
-                            DBHelper.database.child("School_Survey").child("SC_${title}").setValue(null)
-                            DBHelper.database.child("Result").child("ST_${title}").setValue(null)
-                        }
-                    }
-                }
-            }
-    }
-
     //데이터와 뷰를 묶는다
     fun bind(model: SurveyModel){
         Log.d(TAG, "ViewHolder - bind() called")
         getEditor(model.title)
-        setClickEvent(model.title)
         cardTitle.text = model.title
         cardDoc.text = model.doc
     }
