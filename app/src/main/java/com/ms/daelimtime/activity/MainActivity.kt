@@ -18,9 +18,12 @@ import com.ms.daelimtime.util.DBHelper
 class MainActivity : AppCompatActivity() {
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         val bottomNavi = findViewById<BottomNavigationView>(R.id.bottomNavi)
         supportFragmentManager.beginTransaction().replace(R.id.home_ly, Sch_SurveyFragment()).commit() //초기화면 홈 프래그먼트로 지정

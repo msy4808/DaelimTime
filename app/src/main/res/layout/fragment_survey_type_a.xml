@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Survey_Type_A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/type_A_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_black"
+            android:layout_marginBottom="20dp"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/type_A_Doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:textSize="18dp"/>
+
+        <RadioGroup
+            android:id="@+id/a_Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/a_Btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="찬성"/>
+            <RadioButton
+                android:id="@+id/a_Btn_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="반대"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/success_Btn_A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:layout_gravity="center"
+            android:text="설문완료" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.Survey_Type_B">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/type_B_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_black"
+            android:layout_marginBottom="20dp"
+            android:textSize="24dp"/>
+        <TextView
+            android:id="@+id/type_B_Doc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:textSize="18dp"/>
+
+        <RadioGroup
+            android:id="@+id/b_Group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <RadioButton
+                android:id="@+id/b_Btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="매우 그렇다"/>
+            <RadioButton
+                android:id="@+id/b_Btn_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="약간 그렇게 생각함"/>
+            <RadioButton
+                android:id="@+id/b_Btn_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="보통이다 혹은 잘 모르겠다"/>
+            <RadioButton
+                android:id="@+id/b_Btn_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="약간 아닌듯함"/>
+            <RadioButton
+                android:id="@+id/b_Btn_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이건 아니다..."/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/success_Btn_B"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
+            android:layout_gravity="center"
+            android:text="설문완료" />
+    </LinearLayout>
+
+</FrameLayout>
