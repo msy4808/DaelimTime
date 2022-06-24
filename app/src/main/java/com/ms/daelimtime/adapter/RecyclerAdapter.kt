@@ -41,6 +41,7 @@ class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>(
             }
         }
 
+        //del_Btn 이벤트 리스너
         DBHelper.database.child("School_Survey").child("SC_${holder.cardTitle.text}").get().addOnSuccessListener {
             when(it.value) {
                 null -> {
@@ -160,4 +161,6 @@ class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>(
                 }
             }
     }
+
+
 }

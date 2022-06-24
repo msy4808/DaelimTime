@@ -1,20 +1,14 @@
 package com.ms.daelimtime.fragment
 
-import android.app.ProgressDialog
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.fragment.app.FragmentTransaction
 import com.ms.daelimtime.R
 import com.ms.daelimtime.util.DBHelper
-import com.ms.daelimtime.util.DBHelper.userClass
-import com.ms.daelimtime.util.DBHelper.userClassNum
-import com.ms.daelimtime.util.DBHelper.userNickName
 
 
 class UserInfo_Fragment : Fragment() {
@@ -62,13 +56,6 @@ class UserInfo_Fragment : Fragment() {
         userClassNum_edit.setText(DBHelper.userClassNum)
         userClass_edit.setText(DBHelper.userClass)
         userNickname_edit.setText(DBHelper.userNickName)
-
-
-        mySurvey_btn = view.findViewById(R.id.myServey_btn)
-        mySurvey_btn.setOnClickListener{
-            getParentFragmentManager().beginTransaction().replace(R.id.home_ly,mySurvey_Fragment()).commit()
-
-        }
 
     }
 
