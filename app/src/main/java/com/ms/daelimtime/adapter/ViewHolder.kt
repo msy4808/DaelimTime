@@ -39,7 +39,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                             val id = it.value
                             DBHelper.database.child("User").child("UID_${id}").child("userNickName")
                                 .get().addOnSuccessListener {
-                                cardEditor.text = it.value.toString()
+                                cardEditor.text = "작성자 : ${it.value.toString()}"
                                 if (id == DBHelper.id) {
                                     del_Btn.visibility = View.VISIBLE
                                 }
@@ -50,33 +50,10 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                         val id = it.value
                         DBHelper.database.child("User").child("UID_${id}").child("userNickName")
                             .get().addOnSuccessListener {
-                            cardEditor.text = it.value.toString()
-                            if (id == DBHelper.id) {
+                                cardEditor.text = "작성자 : ${it.value.toString()}"
+                                if (id == DBHelper.id) {
                                 del_Btn.visibility = View.VISIBLE
                             }
-                        }
-                    }
-                }
-            }
-    }
-
-    fun getPC(title: String) {
-        DBHelper.database.child("Result").child("SC_${title}").child("PC").get()
-            .addOnSuccessListener {
-                it.children.forEach {
-                    when (it.key != "UID_${DBHelper.id}") {
-                        false -> {
-                            DBHelper.database.child("Result").child("ST_${title}").child("PC").get()
-                                .addOnSuccessListener {
-                                    it.children.forEach {
-                                        if (it.key != "UID_${DBHelper.id}") {
-                                            itemView.visibility = View.GONE
-                                        }
-                                    }
-                                }
-                        }
-                        else -> {
-                            itemView.visibility = View.GONE
                         }
                     }
                 }

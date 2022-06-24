@@ -21,7 +21,7 @@ import com.ms.daelimtime.util.DBHelper
 class Sch_SurveyFragment : Fragment() {
 
     val TAG: String = "로그"
-
+    private val admin_Id:Long = 98713
     private lateinit var recyclerAdapter: RecyclerAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var key: String
@@ -37,12 +37,12 @@ class Sch_SurveyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_sch_survey, container, false)
-        Log.d(TAG, "Sch_SurveyFragment - onCreateView() called")
         recyclerView = view.findViewById<RecyclerView>(R.id.school_Recycle)
+        setRecyclerView()
+        Log.d(TAG, "Sch_SurveyFragment - onCreateView() called")
         val fab = view.findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
-
         fab.setOnClickListener { //관리자일 경우 설문 작성
-            if(DBHelper.id == 2304993869) {
+            if(DBHelper.id == admin_Id) {
                 val intent:Intent = Intent((activity as MainActivity).applicationContext, SurveyEditActivity::class.java)
                 intent.putExtra("type", "school")
                 startActivity(intent)

@@ -44,8 +44,6 @@ object DBHelper {
         database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
         database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
         database.child("School_Survey").child("SC_${title}").child("id").setValue(id)
-        database.child("School_Survey").child("SC_${title}").child("date").setValue(date)
-
     }
 
     fun sendStudentSurvey(title: String, doc: String, type: String, date: LocalDate) {
@@ -53,8 +51,6 @@ object DBHelper {
         database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
         database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
         database.child("Student_Survey").child("ST_${title}").child("id").setValue(id)
-        database.child("School_Survey").child("SC_${title}").child("date").setValue(date)
-
     }
 
     fun getSurveyList() {

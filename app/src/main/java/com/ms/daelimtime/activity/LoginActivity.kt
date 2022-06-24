@@ -37,17 +37,6 @@ class LoginActivity : AppCompatActivity() {
         //학과 학번 닉네임 받기
         UserInit()
 
-
-        var nextBtn: Button = findViewById(R.id.next_Btn)
-        nextBtn.setOnClickListener {
-
-            UserDataSet()
-
-            var intent: Intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
-
-
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
                 when {
@@ -166,7 +155,6 @@ class LoginActivity : AppCompatActivity() {
         //학번
         this.userClassNum = userClassNum_edit.text.toString()
 
-        //>>>>>>>>>>>>>>>>>>
         Log.e("로그인 액티비티", "학번 ${userClassNum},  학과 ${userClass} , 닉네임 ${userNickname}")
 
         //DB
@@ -176,10 +164,9 @@ class LoginActivity : AppCompatActivity() {
     private fun autoLogin() {
         UserApiClient.instance.accessTokenInfo { tokenInfo, error ->
             if (error != null) {
-                Toast.makeText(this, "토큰 정보 보기 실패", Toast.LENGTH_SHORT).show()
+                Log.d("kakao", "Null Token")
             } else if (tokenInfo != null) {
 
-                Toast.makeText(this, "토큰 정보 보기 성공", Toast.LENGTH_SHORT).show()
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP))
                 UserApiClient.instance.me { user, error ->

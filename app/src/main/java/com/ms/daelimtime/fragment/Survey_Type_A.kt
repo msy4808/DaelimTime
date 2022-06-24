@@ -25,7 +25,6 @@ class Survey_Type_A : Fragment() {
         val view = inflater.inflate(R.layout.fragment_survey_type_a, container, false)
         val titleView = view.findViewById<TextView>(R.id.type_A_Title)
         val docView = view.findViewById<TextView>(R.id.type_A_Doc)
-
         val group = view.findViewById<RadioGroup>(R.id.a_Group)
         val btn = view.findViewById<Button>(R.id.success_Btn_A)
         group.check(R.id.a_Btn_1)
