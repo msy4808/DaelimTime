@@ -88,7 +88,6 @@ object DBHelper {
                 } .addOnFailureListener {
                     Log.e("DBHelper","학번 가져오기 오류")
                 }
-<<<<<<< HEAD
                 //닉네임
                 database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
                     userNickName = it.value.toString()
@@ -98,9 +97,6 @@ object DBHelper {
                 }
 
 
-=======
-                Log.d("이게뭐지", school_List_Key.toString())
->>>>>>> adf9dd8afef848891b41577c1946ee95eda01c59
             }
             override fun onCancelled(datasnapshot: DatabaseError) {
                 Log.d("데이터베이스 에러", "ERROR")
