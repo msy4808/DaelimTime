@@ -18,6 +18,7 @@ import com.ms.daelimtime.util.DBHelper
 class MainActivity : AppCompatActivity() {
     private final var FINISH_INTERVAL_TIME: Long = 2000
     private var backPressedTime: Long = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
