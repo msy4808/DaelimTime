@@ -2,6 +2,7 @@ package com.ms.daelimtime.adapter
 
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.ms.daelimtime.R
@@ -13,18 +14,40 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
     val cardTitle = itemView.findViewById<TextView>(R.id.title)
     val cardDoc = itemView.findViewById<TextView>(R.id.doc)
     val cardEditor = itemView.findViewById<TextView>(R.id.editor)
+    val del_Btn = itemView.findViewById<Button>(R.id.del_Btn)
     //기본생성자
     init {
         Log.d(TAG, "ViewHolder - init() called")
+    }
+
+    fun setClickEvent(title: String){
+            DBHelper.database.child("School_Survey").child("SC_${title}").get().addOnSuccessListener {
+                when(it.value) {
+                    null -> {
+                        DBHelper.database.child("Student_Survey").child("ST_${title}").get().addOnSuccessListener {
+                            del_Btn.setOnClickListener {
+                                DBHelper.database.child("Student_Survey").child("ST_${title}").setValue(null)
+                                DBHelper.database.child("Result").child("ST_${title}").setValue(null)
+                            }
+                        }
+                    }
+                    else -> {
+                        del_Btn.setOnClickListener {
+                            DBHelper.database.child("School_Survey").child("SC_${title}").setValue(null)
+                            DBHelper.database.child("Result").child("ST_${title}").setValue(null)
+                        }
+                    }
+                }
+            }
     }
 
     //데이터와 뷰를 묶는다
     fun bind(model: SurveyModel){
         Log.d(TAG, "ViewHolder - bind() called")
         getEditor(model.title)
+        setClickEvent(model.title)
         cardTitle.text = model.title
         cardDoc.text = model.doc
-
     }
     fun getEditor(title: String){
         DBHelper.database.child("School_Survey").child("SC_${title}").child("id").get().addOnSuccessListener {
@@ -34,6 +57,9 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
                         val id = it.value
                         DBHelper.database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
                             cardEditor.text = it.value.toString()
+                            if(id == DBHelper.id){
+                                del_Btn.visibility = View.VISIBLE
+                            }
                         }
                     }
                 }
@@ -41,6 +67,9 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
                     val id = it.value
                     DBHelper.database.child("User").child("UID_${id}").child("userNickName").get().addOnSuccessListener {
                         cardEditor.text = it.value.toString()
+                        if(id == DBHelper.id){
+                            del_Btn.visibility = View.VISIBLE
+                        }
                     }
                 }
             }

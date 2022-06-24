@@ -15,7 +15,6 @@ import com.ms.daelimtime.util.DBHelper
 class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>() {
 
     val TAG: String = "로그"
-    private var type = ""
     private var modelList = ArrayList<SurveyModel>()
     lateinit var title: CharSequence
     lateinit var doc: CharSequence
@@ -30,7 +29,7 @@ class RecyclerAdapter(val context: Context?) : RecyclerView.Adapter<ViewHolder>(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         Log.d(TAG, "RecyclerAdapter - onBindViewHolder() called / position : $position")
         holder.bind(this.modelList[position])
-        holder.itemView.setOnClickListener {
+        holder.itemView.setOnClickListener { //카드뷰 클릭 이벤트
             if (position != RecyclerView.NO_POSITION) {
                 //클릭 이벤트
                 title = holder.cardTitle.text

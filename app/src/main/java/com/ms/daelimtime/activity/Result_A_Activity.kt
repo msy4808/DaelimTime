@@ -34,6 +34,8 @@ class Result_A_Activity : AppCompatActivity() {
                         agree = Integer.parseInt(it.child("agree").getValue().toString())
                         oppose = Integer.parseInt(it.child("oppose").getValue().toString())
                         agreeBar.max = agree + oppose
+                        opposeBar.max = agree + oppose
+
                         agreeBar.progress = agree
                         opposeBar.progress = oppose
                     }
@@ -42,6 +44,7 @@ class Result_A_Activity : AppCompatActivity() {
                     agree = Integer.parseInt(it.child("agree").getValue().toString())
                     oppose = Integer.parseInt(it.child("oppose").getValue().toString())
                     agreeBar.max = agree + oppose
+                    opposeBar.max = agree + oppose
                     agreeBar.progress = agree
                     opposeBar.progress = oppose
                 }

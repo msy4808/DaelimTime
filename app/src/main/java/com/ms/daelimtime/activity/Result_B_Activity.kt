@@ -44,6 +44,12 @@ class Result_B_Activity : AppCompatActivity() {
                         bad = Integer.parseInt(it.child("bad").getValue().toString())
                         veryBad = Integer.parseInt(it.child("verybad").getValue().toString())
 
+                        vgBar.max = veryGood + good + middle + bad + veryBad
+                        gBar.max = veryGood + good + middle + bad + veryBad
+                        mBar.max = veryGood + good + middle + bad + veryBad
+                        bBar.max = veryGood + good + middle + bad + veryBad
+                        vbBar.max = veryGood + good + middle + bad + veryBad
+
                         vgBar.progress = veryGood
                         gBar.progress = good
                         mBar.progress = middle
@@ -58,6 +64,7 @@ class Result_B_Activity : AppCompatActivity() {
                     middle = Integer.parseInt(it.child("middle").getValue().toString())
                     bad = Integer.parseInt(it.child("bad").getValue().toString())
                     veryBad = Integer.parseInt(it.child("verybad").getValue().toString())
+
                     vgBar.max = veryGood + good + middle + bad + veryBad
                     gBar.max = veryGood + good + middle + bad + veryBad
                     mBar.max = veryGood + good + middle + bad + veryBad
