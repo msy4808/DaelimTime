@@ -10,9 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
         android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_weight="1"
+        android:background="@drawable/card_style"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/edit_Title"
@@ -20,30 +22,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
             android:layout_marginBottom="10dp"
-            android:text="설문의 제목을 입력해주세요" />
+            android:fontFamily="@font/notosans_black"
+            android:text="설문의 제목을 입력해주세요"
+            android:textSize="24dp" />
 
         <EditText
             android:id="@+id/survey_Title"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
-            android:layout_marginBottom="50dp"
-            android:hint="입력해주세요.." />
-
+            android:paddingLeft="10dp"
+            android:background="@drawable/edittext_round"
+            android:fontFamily="@font/notosans_medium"
+            android:hint="입력해주세요.."
+            android:textSize="14dp" />
 
         <TextView
             android:id="@+id/edit_Doc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
-            android:text="학우들에게 무엇을 물어볼까요?" />
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/notosans_bold"
+            android:text="학우들에게 무엇을 물어볼까요?"
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/survey_Doc"
             android:layout_width="match_parent"
             android:layout_height="240dp"
-            android:layout_gravity="top|left"
-            android:layout_marginBottom="10dp"
+            android:layout_gravity="top|center"
+            android:paddingLeft="10dp"
+            android:background="@drawable/edittext_round"
+            android:fontFamily="@font/notosans_medium"
             android:hint="입력해주세요.." />
 
         <TextView
@@ -52,26 +63,44 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
             android:layout_marginBottom="10dp"
+            android:fontFamily="@font/notosans_medium"
             android:text="설문 유형을 선택해주세요" />
 
-        <Spinner
+        <RadioGroup
             android:id="@+id/survey_Type"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="top|left"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/survey_Type_Btn_A"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_medium"
+                android:text="찬성 / 반대" />
+
+            <RadioButton
+                android:id="@+id/survey_Type_Btn_B"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/notosans_medium"
+                android:text="5지선다" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:layout_weight="3">
+        android:layout_weight="3.5"
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/send_Btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/notosans_medium"
             android:layout_gravity="center|center_horizontal"
             android:background="@null"
             android:text="설문등록" />

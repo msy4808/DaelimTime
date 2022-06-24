@@ -11,6 +11,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
     val cardTitle = itemView.findViewById<TextView>(R.id.title)
     val cardDoc = itemView.findViewById<TextView>(R.id.doc)
+    val cardEditor = itemView.findViewById<TextView>(R.id.editor)
     //기본생성자
     init {
         Log.d(TAG, "ViewHolder - init() called")
@@ -21,5 +22,7 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         Log.d(TAG, "ViewHolder - bind() called")
         cardTitle.text = model.title
         cardDoc.text = model.doc
+        cardEditor.text = model.editor
+
     }
 }

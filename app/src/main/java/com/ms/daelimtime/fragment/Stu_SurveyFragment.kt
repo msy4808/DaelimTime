@@ -61,7 +61,7 @@ class Stu_SurveyFragment : Fragment() {
 
         for (i in 0 .. DBHelper.student_List_Key.size - 1) {
             key = DBHelper.student_List_Key.get(i)
-            val model = SurveyModel(DBHelper.student_Title_List.get(key).toString(), DBHelper.student_Doc_List.get(key).toString())
+            val model = SurveyModel(DBHelper.student_Title_List.get(key).toString(), DBHelper.student_Doc_List.get(key).toString(), DBHelper.userNickName!!)
             modelList.add(model)
         }
 

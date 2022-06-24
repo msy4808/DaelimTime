@@ -13,7 +13,7 @@ import com.ms.daelimtime.activity.SurveyPage
 import com.ms.daelimtime.util.DBHelper
 
 class Survey_Type_B : Fragment() {
-    var result: String = ""
+    var result: String = "Middle"
     var title: String = ""
     var table: String = ""
     override fun onCreateView(
@@ -26,6 +26,7 @@ class Survey_Type_B : Fragment() {
 
         val group = view.findViewById<RadioGroup>(R.id.b_Group)
         val btn = view.findViewById<Button>(R.id.success_Btn_B)
+        group.check(R.id.b_Btn_3)
         arguments?.getString("title")?.let { //arauments로 전달한 데이터 확인
             title = it
         }
@@ -73,30 +74,35 @@ class Survey_Type_B : Fragment() {
                 DBHelper.database.child("Result").child(title).child("middle").setValue(0)
                 DBHelper.database.child("Result").child(title).child("bad").setValue(0)
                 DBHelper.database.child("Result").child(title).child("verybad").setValue(0)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             } else if (it.value == null && result == "Good") {
                 DBHelper.database.child("Result").child(title).child("verygood").setValue(0)
                 DBHelper.database.child("Result").child(title).child("good").setValue(1)
                 DBHelper.database.child("Result").child(title).child("middle").setValue(0)
                 DBHelper.database.child("Result").child(title).child("bad").setValue(0)
                 DBHelper.database.child("Result").child(title).child("verybad").setValue(0)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             } else if (it.value == null && result == "Middle") {
                 DBHelper.database.child("Result").child(title).child("verygood").setValue(0)
                 DBHelper.database.child("Result").child(title).child("good").setValue(0)
                 DBHelper.database.child("Result").child(title).child("middle").setValue(1)
                 DBHelper.database.child("Result").child(title).child("bad").setValue(0)
                 DBHelper.database.child("Result").child(title).child("verybad").setValue(0)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             } else if (it.value == null && result == "Bad") {
                 DBHelper.database.child("Result").child(title).child("verygood").setValue(0)
                 DBHelper.database.child("Result").child(title).child("good").setValue(0)
                 DBHelper.database.child("Result").child(title).child("middle").setValue(0)
                 DBHelper.database.child("Result").child(title).child("bad").setValue(1)
                 DBHelper.database.child("Result").child(title).child("verybad").setValue(0)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             } else if (it.value == null && result == "Very Bad") {
                 DBHelper.database.child("Result").child(title).child("verygood").setValue(0)
                 DBHelper.database.child("Result").child(title).child("good").setValue(0)
                 DBHelper.database.child("Result").child(title).child("middle").setValue(0)
                 DBHelper.database.child("Result").child(title).child("bad").setValue(0)
                 DBHelper.database.child("Result").child(title).child("verybad").setValue(1)
+                DBHelper.database.child("Result").child(title).child("PC").child("UID_${DBHelper.id}").setValue(1)
             } else {
                 if (result == "Very Good") {
                     DBHelper.database.child("Result").child(title).child("verygood").get()
