@@ -1,73 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.Survey_Type_B">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/type_B_Title"
-            android:layout_width="match_parent"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_black"
-            android:layout_marginBottom="20dp"
-            android:textSize="24dp"/>
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/bmjua"
+            android:text="제목"
+            android:textColor="#0088b9"
+            android:layout_marginLeft="20dp"
+            android:textSize="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/type_B_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bmjua"
+            android:textColor="#101010"
+            android:layout_margin="20dp"
+            android:textSize="24dp"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/bmjua"
+            android:text="작성 내용"
+            android:textSize="16dp"
+            android:textColor="#0088b9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_B_Title" />
+
+
         <TextView
             android:id="@+id/type_B_Doc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/notosans_medium"
-            android:textSize="18dp"/>
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="#444444"
+            android:fontFamily="@font/bmjua"
+            android:padding="10dp"
+            android:textSize="18dp"
+            android:background="@drawable/card_style"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <RadioGroup
             android:id="@+id/b_Group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/type_B_Doc">
 
             <RadioButton
                 android:id="@+id/b_Btn_1"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/bmjua"
                 android:layout_height="wrap_content"
-                android:text="매우 그렇다"/>
+                android:text="매우 그렇다" />
+
             <RadioButton
                 android:id="@+id/b_Btn_2"
                 android:layout_width="wrap_content"
+                android:fontFamily="@font/bmjua"
                 android:layout_height="wrap_content"
-                android:text="약간 그렇게 생각함"/>
+                android:text="약간 그렇게 생각함" />
+
             <RadioButton
                 android:id="@+id/b_Btn_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="보통이다 혹은 잘 모르겠다"/>
+                android:fontFamily="@font/bmjua"
+                android:text="보통이다 혹은 잘 모르겠다" />
+
             <RadioButton
                 android:id="@+id/b_Btn_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="약간 아닌듯함"/>
+                android:fontFamily="@font/bmjua"
+                android:text="약간 아닌듯함" />
+
             <RadioButton
                 android:id="@+id/b_Btn_5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이건 아니다..."/>
+                android:fontFamily="@font/bmjua"
+                android:text="이건 아니다..." />
         </RadioGroup>
 
         <Button
             android:id="@+id/success_Btn_B"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
-            android:background="@drawable/round_dt"
-            android:textColor="@color/white"
-            android:fontFamily="@font/bmjua"
             android:layout_gravity="center"
 
-            android:text="설문완료" />
-    </LinearLayout>
+            android:layout_margin="30dp"
+
+            android:background="@drawable/round_dt"
+            android:fontFamily="@font/bmjua"
+            android:text="설문완료"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
