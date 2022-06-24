@@ -39,16 +39,16 @@ object DBHelper {
     var student_Type_List: HashMap<String?, Any> = HashMap()
 
     fun sendSchoolSurvey(title: String, doc: String, type: String) {
-        database.child("School_Survey").child("SC_${id}_${title}").child("title").setValue(title)
-        database.child("School_Survey").child("SC_${id}_${title}").child("doc").setValue(doc)
-        database.child("School_Survey").child("SC_${id}_${title}").child("type").setValue(type)
+        database.child("School_Survey").child("SC_${title}").child("title").setValue(title)
+        database.child("School_Survey").child("SC_${title}").child("doc").setValue(doc)
+        database.child("School_Survey").child("SC_${title}").child("type").setValue(type)
 
     }
 
     fun sendStudentSurvey(title: String, doc: String, type: String) {
-        database.child("Student_Survey").child("ST_${id}_${title}").child("title").setValue(title)
-        database.child("Student_Survey").child("ST_${id}_${title}").child("doc").setValue(doc)
-        database.child("Student_Survey").child("ST_${id}_${title}").child("type").setValue(type)
+        database.child("Student_Survey").child("ST_${title}").child("title").setValue(title)
+        database.child("Student_Survey").child("ST_${title}").child("doc").setValue(doc)
+        database.child("Student_Survey").child("ST_${title}").child("type").setValue(type)
     }
 
     fun getSurveyList() {
