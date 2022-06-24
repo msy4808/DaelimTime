@@ -14,5 +14,7 @@
         <!-- Customize your theme here. -->
         <!-- 타이틀바 없애기 -->
         <item name="windowNoTitle">true</item>
+        <!-- 백그라운드 색상 설정 -->
+        <item name="android:background">@color/white</item>
     </style>
 </resources>
