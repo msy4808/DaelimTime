@@ -93,7 +93,7 @@ object DBHelper {
                     userNickName = it.value.toString()
 
                 } .addOnFailureListener {
-                    Log.e("DBHelper","학번 가져오기 오류")
+                    Log.e("DBHelper","닉네임 가져오기 오류")
                 }
 
 

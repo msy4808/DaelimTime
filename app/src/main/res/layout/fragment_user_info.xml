@@ -11,17 +11,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/Logout"
-            android:layout_width="204dp"
-            android:layout_height="44dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:text="카카오 로그아웃"/>
-
-        <Button
-            android:id="@+id/my_Survey"
+            android:id="@+id/myServey_btn"
             android:layout_width="195dp"
             android:layout_height="48dp"
             android:text="내가 참여한 설문"
@@ -37,6 +27,8 @@
             android:layout_height="50dp"
             android:enabled="false"
             android:hint="이름"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_round"
             app:layout_constraintBottom_toTopOf="@+id/user_nickName_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -50,6 +42,8 @@
             android:layout_height="50dp"
             android:enabled="false"
             android:hint="닉네임"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_round"
             app:layout_constraintBottom_toTopOf="@+id/user_class_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -62,7 +56,9 @@
             android:layout_marginBottom="30dp"
             android:enabled="false"
             android:hint="학번"
-            app:layout_constraintBottom_toTopOf="@+id/Logout"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_round"
+            app:layout_constraintBottom_toTopOf="@+id/myServey_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -74,6 +70,8 @@
             android:ems="10"
             android:enabled="false"
             android:hint="학과"
+            android:textSize="14dp"
+            android:background="@drawable/edittext_round"
             app:layout_constraintBottom_toTopOf="@+id/user_classNum_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

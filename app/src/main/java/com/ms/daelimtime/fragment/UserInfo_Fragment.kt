@@ -19,7 +19,7 @@ import com.ms.daelimtime.util.DBHelper.userNickName
 
 class UserInfo_Fragment : Fragment() {
 
-    lateinit var my_Survey : Button
+    lateinit var mySurvey_btn : Button
     lateinit var Update : Button
 
 
@@ -64,8 +64,8 @@ class UserInfo_Fragment : Fragment() {
         userNickname_edit.setText(DBHelper.userNickName)
 
 
-        my_Survey = view.findViewById(R.id.my_Survey)
-        my_Survey.setOnClickListener{
+        mySurvey_btn = view.findViewById(R.id.myServey_btn)
+        mySurvey_btn.setOnClickListener{
             getParentFragmentManager().beginTransaction().replace(R.id.home_ly,mySurvey_Fragment()).commit()
 
         }
