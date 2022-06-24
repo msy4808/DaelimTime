@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity">
 
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="140dp"
+        android:src="@drawable/dt_splash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <Spinner
         android:id="@+id/class_spinner"
         android:layout_width="200dp"
@@ -21,10 +30,10 @@
         android:id="@+id/userNickName_edit"
         android:layout_width="200dp"
         android:layout_height="40dp"
-        android:hint="닉네임을 정해주세요"
+        android:hint="닉네임을 설정해주세요"
         android:paddingLeft="10dp"
         android:textSize="14dp"
-        android:fontFamily="@font/notosans_medium"
+        android:fontFamily="@font/bmjua"
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_round"
         app:layout_constraintBottom_toTopOf="@+id/userClassNum_edit"
@@ -38,7 +47,7 @@
         android:textSize="14dp"
         android:paddingLeft="10dp"
         android:hint="학번을 입력하세요"
-        android:fontFamily="@font/notosans_medium"
+        android:fontFamily="@font/bmjua"
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_round"
         app:layout_constraintBottom_toTopOf="@+id/class_spinner"
@@ -47,11 +56,11 @@
 
     <ImageButton
         android:id="@+id/kakao_login_button"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:src="@drawable/kakao_login_medium_narrow"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
