@@ -2,6 +2,7 @@
 ## 2022 1학기 대림대학교 교내 해커톤 <우수상> 
 
 <b> 팀원 </b>: 문성운, 손상배, 박수훈<br>
+<b> 언어 </b>: Kotlin (Android)
 <b>기술스택</b> : FireBase, KakaoLogin API <br>
 
 - 카카오 로그인 토큰 유무를 통한 DB 검사로 자동 로그인 구현
