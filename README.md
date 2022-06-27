@@ -1,5 +1,5 @@
 # DaelimTime
-## 2022 1학기 대림대학교 교내 해커톤 우수 <br>
+## 2022 1학기 대림대학교 교내 해커톤 <우수상> <br>
 
 <b> 팀원 </b>: 문성운, 손상배, 박수훈<br>
 <b>기술스택</b> : FireBase, KakaoLogin API <br>
